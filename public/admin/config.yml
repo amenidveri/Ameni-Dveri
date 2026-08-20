@@ -1,0 +1,93 @@
+backend:
+  name: github
+  repo: your-org/ameni-site   # TODO: заменить на реальный репозиторий на GitHub
+  branch: main
+
+media_folder: "public/images/categories"
+public_folder: "/images/categories"
+
+collections:
+  - name: "site"
+    label: "Настройки сайта"
+    files:
+      - name: "header"
+        label: "Шапка"
+        file: "content/settings/header.yml"
+        fields:
+          - { name: "logo_text_main", label: "Логотип — первое слово", widget: "string", default: "AMENI" }
+          - { name: "logo_text_sub", label: "Логотип — второе слово", widget: "string", default: "ДВЕРІ" }
+          - { name: "logo_color", label: "Цвет логотипа", widget: "color", default: "#B5502E" }
+          - { name: "header_bg", label: "Цвет фона шапки", widget: "color", default: "#f2f2f2" }
+          - { name: "phone", label: "Номер телефона", widget: "string", default: "+380000000000" }
+          - { name: "viber_link", label: "Ссылка Viber", widget: "string", default: "viber://chat" }
+          - { name: "telegram_link", label: "Ссылка Telegram", widget: "string", default: "https://t.me/" }
+      - name: "footer"
+        label: "О нас / Футер"
+        file: "content/settings/footer.yml"
+        fields:
+          - { name: "about_text", label: "Текст «О нас»", widget: "text" }
+          - { name: "phone", label: "Телефон", widget: "string" }
+          - { name: "email", label: "Email", widget: "string" }
+          - { name: "address", label: "Адрес", widget: "string" }
+          - { name: "hours", label: "Режим работы", widget: "string", default: "Пн–Вс: 08:00–20:00, без выходных" }
+          - { name: "tagline", label: "Тёплая фраза-приглашение", widget: "string" }
+
+  - name: "categories"
+    label: "Категории (квадраты на главной)"
+    folder: "content/categories"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    label_singular: "Категория"
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Название", widget: "string" }
+      - { name: "image", label: "Картинка", widget: "image" }
+      - { name: "link", label: "Ссылка на страницу категории", widget: "string" }
+      - { name: "order", label: "Порядок на странице", widget: "number", default: 0 }
+      - { name: "published", label: "Показывать на сайте", widget: "boolean", default: true }
+
+  - name: "videos"
+    label: "Видео (главная)"
+    folder: "content/videos"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    label_singular: "Видео"
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Название", widget: "string" }
+      - { name: "video_url", label: "Файл видео", widget: "file" }
+      - { name: "poster", label: "Превью (обложка)", widget: "image" }
+      - { name: "order", label: "Порядок", widget: "number", default: 0 }
+      - { name: "published", label: "Показывать на сайте", widget: "boolean", default: true }
+
+  - name: "articles"
+    label: "Статьи"
+    folder: "content/articles"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    label_singular: "Статья"
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Заголовок", widget: "string" }
+      - { name: "image", label: "Обложка", widget: "image" }
+      - { name: "date", label: "Дата публикации", widget: "datetime" }
+      - { name: "published", label: "Опубликовано", widget: "boolean", default: true }
+      - { name: "body", label: "Текст статьи", widget: "markdown" }
+
+  - name: "reviews"
+    label: "Отзывы"
+    folder: "content/reviews"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    label_singular: "Отзыв"
+    summary: "{{name}}"
+    fields:
+      - { name: "name", label: "Имя клиента", widget: "string" }
+      - { name: "rating", label: "Оценка (1-5)", widget: "number", default: 5, min: 1, max: 5 }
+      - { name: "text", label: "Текст отзыва", widget: "text" }
+      - { name: "order", label: "Порядок", widget: "number", default: 0 }
+      - { name: "published", label: "Показывать на сайте", widget: "boolean", default: true }
