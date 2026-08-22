@@ -16,11 +16,12 @@ collections:
         fields:
           - { name: "logo_text_main", label: "Логотип — первое слово", widget: "string", default: "AMENI" }
           - { name: "logo_text_sub", label: "Логотип — второе слово", widget: "string", default: "ДВЕРІ" }
-          - { name: "logo_color", label: "Цвет логотипа", widget: "color", default: "#B5502E" }
-          - { name: "header_bg", label: "Цвет фона шапки", widget: "color", default: "#f2f2f2" }
+          - { name: "logo_color", label: "Цвет логотипа", widget: "color", default: "#F4F7F1" }
+          - { name: "header_bg", label: "Цвет фона шапки", widget: "color", default: "#4F5F4C" }
           - { name: "phone", label: "Номер телефона", widget: "string", default: "+380000000000" }
           - { name: "viber_link", label: "Ссылка Viber", widget: "string", default: "viber://chat" }
           - { name: "telegram_link", label: "Ссылка Telegram", widget: "string", default: "https://t.me/" }
+          - { name: "instagram_link", label: "Ссылка Instagram", widget: "string", default: "https://instagram.com/" }
       - name: "footer"
         label: "О нас / Футер"
         file: "content/settings/footer.yml"
