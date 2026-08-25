@@ -48,6 +48,23 @@ collections:
       - { name: "order", label: "Порядок на странице", widget: "number", default: 0 }
       - { name: "published", label: "Показывать на сайте", widget: "boolean", default: true }
 
+  - name: "products"
+    label: "Товары (конкретные модели дверей/ручек)"
+    folder: "content/products"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    label_singular: "Товар"
+    summary: "{{title}} — {{category}}"
+    fields:
+      - { name: "title", label: "Название модели", widget: "string" }
+      - { name: "image", label: "Фото", widget: "image" }
+      - { name: "category", label: "Раздел", widget: "relation", collection: "categories", search_fields: ["title"], value_field: "{{slug}}", display_fields: ["title"] }
+      - { name: "subcategory", label: "Под-раздел (напр. «с зеркалом», «с шпоном»)", widget: "string", required: false, hint: "Оставь пустым для базовых/обычных моделей" }
+      - { name: "popular", label: "Ходовая модель (показывать в топе на главной)", widget: "boolean", default: false }
+      - { name: "order", label: "Порядок", widget: "number", default: 0 }
+      - { name: "published", label: "Показывать на сайте", widget: "boolean", default: true }
+
   - name: "videos"
     label: "Видео (главная)"
     folder: "content/videos"
@@ -60,6 +77,7 @@ collections:
       - { name: "title", label: "Название", widget: "string" }
       - { name: "video_url", label: "Файл видео", widget: "file" }
       - { name: "poster", label: "Превью (обложка)", widget: "image" }
+      - { name: "category", label: "Привязать к категории (необязательно)", widget: "relation", collection: "categories", search_fields: ["title"], value_field: "{{slug}}", display_fields: ["title"], required: false }
       - { name: "order", label: "Порядок", widget: "number", default: 0 }
       - { name: "published", label: "Показывать на сайте", widget: "boolean", default: true }
 
