@@ -6,6 +6,21 @@ export default function DesktopSidebar({ categories }) {
   return (
     <>
       <aside className="desktop-sidebar">
+        <a
+          href="#top"
+          style={{
+            display: "block",
+            fontWeight: 800,
+            fontSize: 17,
+            color: "#333F31",
+            textDecoration: "none",
+            padding: "4px 4px 16px",
+            borderBottom: "1px solid #E4E9E1",
+            marginBottom: 12,
+          }}
+        >
+          AMENI <span style={{ color: "#6E7F6B", fontWeight: 600 }}>ДВЕРІ</span>
+        </a>
         <div style={{ fontWeight: 800, fontSize: 15, color: "#333F31", padding: "4px 4px 10px" }}>Розділи</div>
         <SiteMenu categories={categories} />
       </aside>

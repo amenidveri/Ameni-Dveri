@@ -38,7 +38,7 @@ export default function Home({
   footerSettings,
 }) {
   return (
-    <div style={{ paddingBottom: STICKY_BAR_HEIGHT }}>
+    <div id="top" style={{ paddingBottom: STICKY_BAR_HEIGHT }}>
       <Header settings={headerSettings} categories={categories} />
       <DesktopSidebar categories={categories} />
 
